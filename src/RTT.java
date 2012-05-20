@@ -30,8 +30,8 @@ public class RTT {
     }
 
     public long calculaRTT(){
-        for (int i = 0; i < temposIniciais.size() ; i++) {
-        long min = Long.parseLong(temposFinais.get(i)) - Long.parseLong(temposIniciais.get(i));  
+        for (int i = 0; i < getTemposIniciais().size() ; i++) {
+        long min = Long.parseLong(getTemposFinais().get(i)) - Long.parseLong(temposIniciais.get(i));  
         if(min<rtt){
            rtt = min;
          }  
