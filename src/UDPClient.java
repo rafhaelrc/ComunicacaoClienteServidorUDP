@@ -2,13 +2,15 @@
 /**
  *
  * @author RafhaelRC
- * bla bla bla bla
+ * Classe que implementa o Cliente UDP
  */
 import java.io.*;
 import java.net.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 class UDPClient {
 
@@ -23,6 +25,11 @@ class UDPClient {
         sendData = sentence.getBytes();
         DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss,SSS");
         Date date = new Date();
+        Calendar c = new GregorianCalendar();  
+        c.setTimeInMillis(System.currentTimeMillis());
+        System.out.println("Pegando o tempo em MiliSegundos: "+ c.getTimeInMillis());
+        
+        
         DatagramPacket sendPacket =
                 new DatagramPacket(sendData, sendData.length, IPAddress, 9876);
         clientSocket.send(sendPacket);
