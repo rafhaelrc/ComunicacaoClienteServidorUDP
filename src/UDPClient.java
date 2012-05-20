@@ -27,7 +27,7 @@ class UDPClient {
         //Cria socket Cliente
         DatagramSocket clientSocket = new DatagramSocket();
         //Traduz HostName para Endereço IP Usando DNS
-        InetAddress IPAddress = InetAddress.getByName("localhost");
+        InetAddress IPAddress = InetAddress.getByName("201.66.204.109");
        //Testezinho pra ver se ta pegando o ip certo
         System.out.println("IPADRESS: " + IPAddress.getHostAddress());
   
