@@ -19,7 +19,7 @@ class UDPClient {
         ArrayList<String> tempoSaida = new ArrayList<String>();
         ArrayList<String> tempoRetorno = new ArrayList<String>();
         //Cria Stream de Enrada
-        Tempo tempo = new Tempo();
+
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Digite quantos pacotes serão enviados."); 
         String quantidade = inFromUser.readLine();
@@ -33,8 +33,6 @@ class UDPClient {
   
        for(int i = 0; i<numero;i++){
        
-       
-      
         byte[] sendData = new byte[1024];
         byte[] receiveData = new byte[1024];
         //String sentence = inFromUser.readLine();
@@ -69,11 +67,13 @@ class UDPClient {
         //Pega a hora em milisegundos
         c.setTimeInMillis(System.currentTimeMillis());
         System.out.print("hora de chegada: " + c.getTimeInMillis()+ " ");
+         System.out.println();
         tempoRetorno.add(i, c.getTimeInMillis()+"");
         String modifiedSentence = new String(receivePacket.getData());
         }
 
      clientSocket.close();
-       
+     RTT rtt = new RTT(tempoSaida, tempoRetorno);
+     System.out.print("rtt = "+rtt.calculaRTT());
     }
 }
