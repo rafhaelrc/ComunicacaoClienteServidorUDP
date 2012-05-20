@@ -2,7 +2,7 @@
 /**
  *
  * @author RafhaelRC
- * bla bla bla bla
+ * bla
  */
 import java.io.*;
 import java.net.*;
