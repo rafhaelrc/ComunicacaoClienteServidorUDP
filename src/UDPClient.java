@@ -18,7 +18,10 @@ class UDPClient {
 
         ArrayList<String> tempoSaida = new ArrayList<String>();
         ArrayList<String> tempoRetorno = new ArrayList<String>();
-        //Cria Stream de Enrada
+        Calendar c = new GregorianCalendar();
+        int cont;
+        String t;
+       
 
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Digite quantos pacotes serão enviados."); 
@@ -40,12 +43,9 @@ class UDPClient {
         String sentence = "Teste";
         sendData = sentence.getBytes();
 
-        Calendar c = new GregorianCalendar();
-
-       
         // Cria datagrama com dados a enviar, dados a receber, tamanho, endereço IP e Porta
         DatagramPacket sendPacket =
-                new DatagramPacket(sendData, sendData.length, IPAddress, 8080);
+                new DatagramPacket(sendData, sendData.length, IPAddress, 2222);
 
         // Enviando um datagrama para o servidor
         clientSocket.send(sendPacket);
@@ -67,13 +67,20 @@ class UDPClient {
         //Pega a hora em milisegundos
         c.setTimeInMillis(System.currentTimeMillis());
         System.out.print("hora de chegada: " + c.getTimeInMillis()+ " ");
-         System.out.println();
+        System.out.println();
         tempoRetorno.add(i, c.getTimeInMillis()+"");
-        String modifiedSentence = new String(receivePacket.getData());
+       
+        cont = numero-1;
+        if(cont == i){
+             t = new String(receivePacket.getData());
+             System.out.print("T: = "+t);
+        }
         }
 
-     clientSocket.close();
+     
      RTT rtt = new RTT(tempoSaida, tempoRetorno);
      System.out.print("rtt = "+rtt.calculaRTT());
+     clientSocket.close();
+     
     }
 }

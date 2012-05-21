@@ -14,6 +14,7 @@ public class RTT {
     
     ArrayList<String> temposIniciais;
     ArrayList<String> temposFinais;
+    ArrayList<Long> rtts;
     long rtt =0;
 
     public RTT(ArrayList<String> temposIniciais, ArrayList<String> temposFinais) {
@@ -30,14 +31,18 @@ public class RTT {
     }
 
     public long calculaRTT(){
-        for (int i = 0; i < getTemposIniciais().size() ; i++) {
-        long min = Long.parseLong(getTemposFinais().get(i)) - Long.parseLong(temposIniciais.get(i));  
-        if(min<rtt){
-           rtt = min;
-         }  
-            
-        }
-    
-    return rtt;
+       long min=0;
+        long m = ( Long.parseLong(getTemposFinais().get(0)) - Long.parseLong(temposIniciais.get(0))) ;
+       for (int i = 0; i < getTemposIniciais().size() ; i++) {
+           
+       min = ( Long.parseLong(getTemposFinais().get(i)) - Long.parseLong(temposIniciais.get(i)));
+       System.out.println("RTT" + min); 
+       if(min<m){
+           m=min;
+       }
+        
+       }
+        
+        return m;
     }
 }
