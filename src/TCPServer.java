@@ -15,7 +15,7 @@ class TCPServer {
     public static void main(String args[]) throws Exception {
 
         //Cria um datagrama socket na parta 8080
-        DatagramSocket serverSocket = new DatagramSocket(8080);
+        DatagramSocket serverSocket = new DatagramSocket(2222);
         byte[] receiveData = new byte[1024];
         byte[] sendData = new byte[1024];
         Calendar c = new GregorianCalendar();

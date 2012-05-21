@@ -1,0 +1,68 @@
+	\documentclass{abnt}
+%\usepackage[a4paper, inner=1.5cm, outer=2cm, top=3cm, bottom=2cm, bindingoffset=1cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english,brazilian]{babel}
+\usepackage{rotating}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{indentfirst}
+\hypersetup{%
+    pdfborder = {0 0 0}
+}
+\usepackage{graphics}
+\graphicspath{{./figuras/}}
+\usepackage{placeins}
+%\usepackage{lscape}
+\usepackage{pdflscape}
+
+\begin{document}
+
+\autor{Rafhael Rodrigues Cunha\par Marcelo Maia Lopes }
+
+\titulo{Redes e Sistemas Distribuídos: Trabalho Prático II}
+
+%\orientador{Prof.}
+
+\instituicao{Universidade Federal do Pampa \par Engenharia da Software}
+
+\local{Alegrete - RS, Brasil}
+
+\data{20 de Maio de 2012}
+
+\capa
+
+\folhaderosto
+
+\tableofcontents
+
+
+\chapter{Introdução}
+Esse Documento tem por objetivo auxiliar o usuário para rodar a aplicação cliente/servidor UDP que desenvolvemos.
+
+\clearpage
+\chapter{Manual do Usuário}
+
+	\section{Instação}	
+	Para utilizar o cliente servidor UDP que desenvolvemos é necessario pegar a pasta do projeto que vai estar contida no zip no qual vai ser enviado como entrega final do Trabalho. Logo após isso é necessario vincular o mesmo a uma IDE de programação que suporte a linguagem java (de preferência o Netbeans) e abrir duas classes:
+	Após abrir a classe TCPServer (o nome da classe é irrelevante estamos utilizando o protocolo UDP para implementar a mesma), faremos a seguinte alteração:
+		\begin{itemize}
+			\item DatagramSocket serverSocket = new DatagramSocket(2222); Esse 2222 entre parenteses refere-se a porta na qual eu gostaria que meu server roda-se. Caso essa não seja a sua escolhida, e só trocar ali.
+			\item Após essa pequena de alteração de porta, e só rodar a classe do servidor.
+		\end{itemize}	
+	Para realmente começarmos a utilizar o sistema precisamos configurar nossa classe ClienteUDP	
+	
+	
+	\section{Linguagem Utilizada}	
+		A linguagem utilizada de apoio para desenvolvimento da solução do trabalho proposto foi o java, porque alem de ele ser multiplataforma, ou seja, rodar em diversos sistemas operacionais ele também possui muitos tratamentos na parte de sockets que é uma classe utilizada na implementação da solução que facilita na parte de comunicação entre um cliente e outro. \cite{ORACLE}
+		
+	
+
+
+
+\clearpage
+%Referências Bibliograficas
+\nocite{*}
+\bibliographystyle{plain}		
+\bibliography{bibliografia}	
+	
+\end{document}
