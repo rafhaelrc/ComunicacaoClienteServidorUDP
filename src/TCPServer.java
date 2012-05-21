@@ -34,7 +34,7 @@ class TCPServer {
             int port = receivePacket.getPort();
              c.setTimeInMillis(System.currentTimeMillis());
        
-            String capitalizedSentence = c.getTimeInMillis()+"";
+            String capitalizedSentence = String.valueOf(c.getTimeInMillis());
             sendData = capitalizedSentence.getBytes();
             
             DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress,port);
